@@ -64,7 +64,12 @@ export default function currencyConvertor() {
                 </Modal>
             </View>
 
-            <Button title="Convert" onPress={convertCurrency} />
+            <View style={{ marginTop: 10,marginBottom:10 }}>
+                <Button
+                    title="Convert"
+                    onPress={convertCurrency}
+                />
+            </View>
 
             <View style={{ marginTop: 20 }}>
                 <Text style={{ fontSize: 17, fontWeight: 'medium' }}>
