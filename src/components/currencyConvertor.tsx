@@ -4,7 +4,8 @@ import { View, Text, TouchableOpacity, Modal, FlatList, StyleSheet, TextInput, B
 export default function currencyConvertor() {
     const [value, setValue] = useState<string>('')
     const [isVisible, setIsVisible] = useState(false)
-    const [selectedOption, setSelectedOption] = useState<string>('Option 1')
+    const [selectedOption, setSelectedOption] = useState<string>('USD to LKR')
+    const [convertedValue, setConvertedValue] = useState<string>('')
 
     const options = ['USD to LKR', 'LKR to USD']
 
@@ -13,9 +14,12 @@ export default function currencyConvertor() {
         setIsVisible(false)
     }
 
-    const getCurrencyValue = () => {
+    const convertCurrency = () => {
         const numericValue = parseFloat(value) || 0
-        console.log('Converted Value:', numericValue)
+        const rate = selectedOption === 'USD to LKR' ? 300 : 1 / 300
+        const convertedValue = (numericValue * rate).toFixed(2)
+        console.log('Converted Value:', convertedValue)
+        setConvertedValue(convertedValue)
     }
 
     return (
@@ -29,7 +33,7 @@ export default function currencyConvertor() {
                     onChangeText={setValue}
                 />
             </View>
-            
+
             {/* Convertor Options */}
             <View style={styles.container}>
                 <Text style={styles.label}>Choose a Convertor:</Text>
@@ -60,7 +64,15 @@ export default function currencyConvertor() {
                 </Modal>
             </View>
 
-            <Button title="Convert" onPress={getCurrencyValue} />
+            <Button title="Convert" onPress={convertCurrency} />
+
+            <View style={{ marginTop: 20 }}>
+                <Text style={{ fontSize: 17, fontWeight: 'medium' }}>
+                    Converted Amount : <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+                        {convertedValue}
+                    </Text>
+                </Text>
+            </View>
         </View>
     )
 }
