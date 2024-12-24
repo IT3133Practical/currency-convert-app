@@ -1,12 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import CurrencyConvertor from './src/components/currencyConvertor';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={{fontSize:40,fontWeight:'bold',marginTop:100,marginBottom:50}}>Currency Convertor</Text>
+        <CurrencyConvertor/>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -15,6 +17,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
