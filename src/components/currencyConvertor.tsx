@@ -24,6 +24,7 @@ export default function currencyConvertor() {
 
     return (
         <View>
+            {/* Enter Amount */}
             <View>
                 <TextInput
                     placeholder="Enter Amount"
@@ -64,6 +65,7 @@ export default function currencyConvertor() {
                 </Modal>
             </View>
 
+            {/* Convert Button */}
             <View style={{ marginTop: 10,marginBottom:10 }}>
                 <Button
                     title="Convert"
@@ -71,6 +73,7 @@ export default function currencyConvertor() {
                 />
             </View>
 
+            {/* Converted Amount */}
             <View style={{ marginTop: 20 }}>
                 <Text style={{ fontSize: 17, fontWeight: 'medium' }}>
                     Converted Amount : <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
